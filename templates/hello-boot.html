@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+
+    <title>Проекты Силаэдра</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='bootstrap.css') }} " rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='album.css') }} " rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="navbar navbar-dark bg-warning shadow-sm">
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Проекты Силаэдра</h1>
+          <p class="lead text-muted">Проектные работы школьников <a href="http://1303fm.org/">классов "Силаэдр"</a>.</p>
+          <p>
+            <a href="{{url_for('show_students_call')}}" class="btn btn-warning my-2">Школьникам и родителям</a>
+            <a href="{{url_for('show_advisors_call')}}" class="btn btn-secondary my-2">Руководителям и партнёрам</a>
+          </p>
+        </div>
+      </section>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+       {%for e in entries%}
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{e.image_url}}" data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">{{ e.text }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                    <a href="projects/{{e.url}}" class="btn btn-sm btn-outline-secondary">Смотреть</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{url_for('static', filename='jquery-3.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="{{url_for('static', filename='popper.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap.js')}}"></script>
+    <script src="{{url_for('static', filename='holder.js')}}></script>
+
+ <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body></html>
